@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+    php:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        working_dir: /var/www/html
+        command: 'php artisan serve --host=0.0.0.0 --port=80'
+        volumes:
+            - './:/var/www/html'
+        ports:
+            - '80:80'
+    composer:
+        image: composer
+        volumes:
+            - '.:/app'
+    mysql:
+        image: 'mysql:8.0'
+        restart: always
+        volumes:
+            - './mysql:/var/lib/mysql'
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: laravel
