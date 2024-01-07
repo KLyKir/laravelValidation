@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Event;
 
+use App\Http\Controllers\Controller;
 use App\Models\Event;
-use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
 
     public function index(){
-        $events = Event::get();
+        $events = Event::all();
         return view('event.index', ['events' => $events]);
     }
 

@@ -4,8 +4,9 @@
 
 @section('date')
     <div>
-        {{$event->name}}
-        {{$event->date}}
-        {{$event->time}}
+        {{$event->title}}
+        {{$event->notes}}
+        {{$event->dt_start}}
+        {{$event->dt_end}}
     </div>
 @endsection

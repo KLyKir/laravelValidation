@@ -1,8 +1,20 @@
 <tr>
     <th scope="row">{{$event->id}}</th>
-    <td>{{$event->name}}</td>
-    <td>{{$event->date}}</td>
-    <td>{{$event->time}}</td>
+    <td>{{$event->title}}</td>
+    <td>{{$event->notes}}</td>
+    <td>{{$event->dt_start}}</td>
+    <td>{{$event->dt_end}}</td>
+    <td>{{$event->user->name}}</td>
     <td><a href = "{{route('event.show', ['id' => $event->id])}}">Show</a></td>
+    @if(isset($user))
+        <td><a href = "{{route('user.update.event', ['id' => $event->id])}}">Update</a></td>
+    @else
+        <td><a href = "{{route('event.update', ['id' => $event->id])}}">Update</a></td>
+    @endif
+    @if(isset($user))
+        <td><a href = "{{route('user.delete.event', ['id' => $event->id])}}">Delete</a></td>
+    @else
+        <td><a href = "{{route('event.delete', ['id' => $event->id])}}">Delete</a></td>
+    @endif
 </tr>
 

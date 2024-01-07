@@ -14,6 +14,9 @@
                     <th scope="col">Email</th>
                     <th scope="col">Password</th>
                     <th scope="col">Info</th>
+                    <th scope="col">Events</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -22,6 +25,7 @@
                 @endforeach
                 </tbody>
             </table>
+            <a class="btn btn-primary btn-lg btn-block" href = {{route('user.insert')}}>Insert</a>
         @else
             No users
         @endif

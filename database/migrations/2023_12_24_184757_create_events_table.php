@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->text("name");
-            $table->string("date");
-            $table->string("time");
+            $table->text("title");
+            $table->string("notes");
+            $table->string("dt_start");
+            $table->string("dt_end");
+            $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
