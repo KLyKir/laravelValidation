@@ -4,20 +4,35 @@ namespace App\Http\Controllers\Event;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\User;
 
 class InsertEventController extends Controller
 {
-    public function insert(){
-        for($i = 0; $i < 10; $i++){
+
+    public function index(){
+
+        return view('event.add_update');
+    }
+
+    public function insert(\Illuminate\Http\Request $request){
+        $data = $request->validate([
+            'title' => ['required', 'string', 'max:10'],
+            'notes' => ['required', 'string'],
+            'dt_start' => ['required', 'date', 'after_or_equal:today'],
+            'dt_end' => ['required', 'date', 'after:dt_start'],
+            'user' => ['numeric']
+        ]);
+        if($data){
             $event = new Event();
-            $event->title = "name".$i;
-            $event->notes = "description".$i;
-            $event->dt_start = "2022-01-01";
-            $event->dt_end = "2023-02-01";
-            $event->user_id = 5;
+            $event->title = $data['title'];
+            $event->notes = $data['notes'];
+            $event->dt_start = $data['dt_start'];
+            $event->dt_end = $data['dt_end'];
+            $event->user_id =$data['user'];
             $event->save();
+            $events = Event::get();
+            return view('event.index', ['events' => $events]);
         }
-        $events = Event::get();
-        return view('event.index', ['events' => $events]);
+
     }
 }

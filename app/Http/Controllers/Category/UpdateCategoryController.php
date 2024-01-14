@@ -7,7 +7,7 @@ use App\Models\Category;
 
 class UpdateCategoryController extends Controller
 {
-    public function update(){
+    public function __invoke(){
         $category = Category::query()->find(5);
         $category->name = 'nameUpdate';
         $category->description = 'descriptionUpdate';

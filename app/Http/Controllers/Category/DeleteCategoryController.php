@@ -7,7 +7,7 @@ use App\Models\Category;
 
 class DeleteCategoryController extends Controller
 {
-    public function delete(){
+    public function __invoke(){
         $category = Category::latest()->first();
         $category->delete();
         $categories = Category::get();

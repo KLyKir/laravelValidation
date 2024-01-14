@@ -7,9 +7,9 @@
     <td>{{$event->user->name}}</td>
     <td><a href = "{{route('event.show', ['id' => $event->id])}}">Show</a></td>
     @if(isset($user))
-        <td><a href = "{{route('user.update.event', ['id' => $event->id])}}">Update</a></td>
+        <td><a href = "{{route('user.update.show.event', ['id' => $event->id])}}">Update</a></td>
     @else
-        <td><a href = "{{route('event.update', ['id' => $event->id])}}">Update</a></td>
+        <td><a href = "{{route('event.show.update', ['id' => $event->id])}}">Update</a></td>
     @endif
     @if(isset($user))
         <td><a href = "{{route('user.delete.event', ['id' => $event->id])}}">Delete</a></td>

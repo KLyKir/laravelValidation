@@ -7,7 +7,7 @@ use App\Models\User;
 
 class ShowUserEventsController extends Controller
 {
-    public function getEvents($id){
+    public function __invoke($id){
         $user = User::find($id);
         return view('event.index', ['user' => $user]);
     }

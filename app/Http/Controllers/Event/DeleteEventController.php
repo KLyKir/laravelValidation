@@ -7,7 +7,7 @@ use App\Models\Event;
 
 class DeleteEventController extends Controller
 {
-    public function delete($id){
+    public function __invoke($id){
         $event = Event::findOrFail($id);
         $event->delete();
         $events = Event::get();

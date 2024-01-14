@@ -7,7 +7,7 @@ use App\Models\User;
 
 class DeleteUserController extends Controller
 {
-    public function delete($id){
+    public function __invoke($id){
         $user = User::findOrFail($id);
         $user->delete();
         $users = User::get();

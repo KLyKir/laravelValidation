@@ -7,7 +7,7 @@ use App\Models\Category;
 
 class InsertCategoryController extends Controller
 {
-    public function insert(){
+    public function __invoke(){
         for($i = 0; $i < 10; $i++){
             $category = new Category();
             $category->name = "name".$i;

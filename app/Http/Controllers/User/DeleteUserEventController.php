@@ -8,7 +8,7 @@ use App\Models\User;
 
 class DeleteUserEventController extends Controller
 {
-    public function delete($id){
+    public function __invoke($id){
         $event = Event::findOrFail($id);
         $userId = $event->user->id;
         $user = User::findOrFail($userId);

@@ -32,9 +32,9 @@
                 </tbody>
             </table>
             @if(isset($user))
-                <a class="btn btn-primary btn-lg btn-block" href = {{route('user.insert.event', ['id' => $user->id])}}>Insert</a>
+                <a class="btn btn-primary btn-lg btn-block" href = {{route('user.show.event', ['id' => $user->id])}}>Insert</a>
             @else
-                <a class="btn btn-primary btn-lg btn-block" href = {{route('event.insert')}}>Insert</a>
+                <a class="btn btn-primary btn-lg btn-block" href = {{route('event.show.insert')}}>Insert</a>
             @endif
         @else
 

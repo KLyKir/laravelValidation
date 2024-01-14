@@ -7,7 +7,7 @@ use App\Models\Category;
 
 class GetCategoryController extends Controller
 {
-    public function get(){
+    public function __invoke(){
         $categories = Category::query()
             ->where('id', '>=', '4')
             ->where('id', '<=', '7')->get();
